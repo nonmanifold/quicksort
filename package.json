@@ -1,7 +1,7 @@
 {
   "name": "quicksort",
   "version": "1.0.0",
-  "description": "",
+  "description": "Quicksort with three different pivot rules: first, final and median-of-three.",
   "main": "index.js",
   "scripts": {
     "test": "node tests.js"
