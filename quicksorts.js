@@ -5,11 +5,17 @@ function choosePivotFirst(arr, begin, end) {
 function choosePivotFinal(arr, begin, end) {
     return end;
 }
+
+function choosePivotMedian(arr, begin, end) {
+    return end;
+}
+
 function swapInPlace(arr, i, j) {
-    const a = arr[i];
+    var a = arr[i];
     arr[i] = arr[j];
     arr[j] = a;
 }
+
 function partition(arr, begin, p, end) {
     if (p > begin) {
         swapInPlace(arr, p, begin); // place pivot element at the beginning of subarray
@@ -24,29 +30,29 @@ function partition(arr, begin, p, end) {
         }
     }
     swapInPlace(arr, begin, i - 1);//place pivot element into its correct place, before boundary
-    return i;// the boundary between two partitioned parts of subarray
+    return i-1;// the boundary between two partitioned parts of subarray
 }
 
 function quicksort(arr, choosePivotFn, begin, end) {
-    if (end - begin === 1) {
-        return 0;
+    if (end <= begin) {
+        return 0; //base case
     } else {
         const p = choosePivotFn(arr, begin, end);
         var comparsions = (end - begin) - 1;
         var boundary = partition(arr, begin, p, end);
-        comparsions += quicksort(arr, choosePivotFn, begin, boundary);
-        comparsions += quicksort(arr, choosePivotFn, boundary, end);
+        comparsions += quicksort(arr, choosePivotFn, begin, boundary - 1);
+        comparsions += quicksort(arr, choosePivotFn, boundary + 1, end);
         return comparsions;
     }
 }
 module.exports = {
     first: function quicksortFirst(arr) {
-        return quicksort(arr, choosePivotFirst, 0, arr.length)
+        return quicksort(arr, choosePivotFirst, 0, arr.length - 1)
     },
     final: function quicksortFinal(arr) {
-        return null
+        return quicksort(arr, choosePivotFinal, 0, arr.length - 1)
     },
     median: function quicksortMedian(arr) {
-        return null
+        return quicksort(arr, choosePivotMedian, 0, arr.length - 1)
     }
 };

@@ -7,7 +7,15 @@ const quicksorts = require('./quicksorts');
 const arr = [];
 
 const counter = function (arr) {
-    const sorted = quicksorts(arr);
+    const comparsionsFirst = quicksorts.first(arr.slice());
+    console.log('first: ' + comparsionsFirst);
+
+    const comparsionsFinal = quicksorts.final(arr.slice());
+    console.log('final: ' + comparsionsFinal);
+
+    const comparsionsMedian = quicksorts.median(arr.slice());
+    console.log('median: ' + comparsionsMedian);
+
 };
 
 const rl = readline.createInterface({
