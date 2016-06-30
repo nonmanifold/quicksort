@@ -30,7 +30,7 @@ function partition(arr, begin, p, end) {
         }
     }
     swapInPlace(arr, begin, i - 1);//place pivot element into its correct place, before boundary
-    return i-1;// the boundary between two partitioned parts of subarray
+    return i - 1;// the boundary between two partitioned parts of subarray
 }
 
 function quicksort(arr, choosePivotFn, begin, end) {
