@@ -38,7 +38,7 @@ function quicksort(arr, choosePivotFn, begin, end) {
         return 0; //base case
     } else {
         const p = choosePivotFn(arr, begin, end);
-        var comparsions = (end - begin) - 1;
+        var comparsions = (end - begin + 1) - 1;
         var boundary = partition(arr, begin, p, end);
         comparsions += quicksort(arr, choosePivotFn, begin, boundary - 1);
         comparsions += quicksort(arr, choosePivotFn, boundary + 1, end);

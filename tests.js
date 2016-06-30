@@ -10,11 +10,15 @@ function testWithFirst() {
     assert.equal(0, qsFirst(emptyArr));
     assert.deepEqual([], emptyArr);
 
-    assert.equal(1, qsFirst(sortedArr));
+    assert.equal(3, qsFirst(sortedArr));
     assert.deepEqual([1, 2, 3], sortedArr);
 
-    assert.equal(5, qsFirst(messyArr));
+    assert.equal(8, qsFirst(messyArr));
     assert.deepEqual([1, 2, 3, 4, 5], messyArr);
+
+    const reverseArr = [9, 8, 7, 6, 5, 4, 3, 2, 1];
+    assert.equal(36, qsFirst(reverseArr));
+    assert.deepEqual([1, 2, 3, 4, 5, 6, 7, 8, 9], reverseArr);
 }
 testWithFirst();
 
@@ -28,11 +32,15 @@ function testWithFinal() {
     assert.equal(0, qsFinal(emptyArr));
     assert.deepEqual([], emptyArr);
 
-    assert.equal(1, qsFinal(sortedArr));
+    assert.equal(3, qsFinal(sortedArr));
     assert.deepEqual([1, 2, 3], sortedArr);
 
-    assert.equal(3, qsFinal(messyArr));
+    assert.equal(6, qsFinal(messyArr));
     assert.deepEqual([1, 2, 3, 4, 5], messyArr);
+
+    const reverseArr = [9, 8, 7, 6, 5, 4, 3, 2, 1];
+    assert.equal(36, qsFinal(reverseArr));
+    assert.deepEqual([1, 2, 3, 4, 5, 6, 7, 8, 9], reverseArr);
 }
 testWithFinal();
 
@@ -46,11 +54,15 @@ function testWithMed() {
     assert.equal(0, qsMed(emptyArr));
     assert.deepEqual([], emptyArr);
 
-    assert.equal(1, qsMed(sortedArr));
+    assert.equal(3, qsMed(sortedArr));
     assert.deepEqual([1, 2, 3], sortedArr);
 
-    assert.equal(3, qsMed(messyArr));
+    assert.equal(6, qsMed(messyArr));
     assert.deepEqual([1, 2, 3, 4, 5], messyArr);
+
+    const reverseArr = [9, 8, 7, 6, 5, 4, 3, 2, 1];
+    assert.equal(36, qsMed(reverseArr));
+    assert.deepEqual([1, 2, 3, 4, 5, 6, 7, 8, 9], reverseArr);
 }
 testWithMed();
 
