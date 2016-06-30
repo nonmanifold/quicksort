@@ -5,9 +5,30 @@ function choosePivotFirst(arr, begin, end) {
 function choosePivotFinal(arr, begin, end) {
     return end;
 }
+function isOdd(num) {
+    return num % 2;
+}
+function getMiddleElemIdx(arr, begin, end) {
+    const length = end - begin + 1;
+    if (isOdd(length)) {
+        return begin + Math.floor(length / 2);
+    } else {
+        return begin + Math.floor(length / 2) - 1;
+    }
+}
 
 function choosePivotMedian(arr, begin, end) {
-    return end;
+    const first = arr[begin];
+    const middleIdx = getMiddleElemIdx(arr, begin, end);
+    const middle = arr[middleIdx];
+    const last = arr[end];
+    if ((first < middle && middle < last) || (last < middle && middle < first)) {
+        return middleIdx;
+    } else if ((middle < first && first < last) || (last < first && first < middle)) {
+        return begin;
+    } else {
+        return end;
+    }
 }
 
 function swapInPlace(arr, i, j) {
@@ -54,5 +75,7 @@ module.exports = {
     },
     median: function quicksortMedian(arr) {
         return quicksort(arr, choosePivotMedian, 0, arr.length - 1)
-    }
+    },
+    getMiddleElemIdx: getMiddleElemIdx,
+    choosePivotMedian: choosePivotMedian
 };
